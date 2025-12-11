@@ -1,3 +1,8 @@
-void main() {
-  System.out.printf("Hello world");
+public class Main {
+  public static void main(String[] args) {
+
+    Pet pet = new Pet("Бобик", 3);
+
+    pet.showInfo();
+  }
 }
