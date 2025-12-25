@@ -5,6 +5,11 @@ public class Pet {
     private String species;
     private int age;
 
+    // Default constructor (optional but added)
+    public Pet() {
+    }
+
+    // Constructor with all fields
     public Pet(int id, String name, String species, int age) {
         this.id = id;
         this.name = name;
@@ -12,7 +17,7 @@ public class Pet {
         this.age = age;
     }
 
-    // getters
+    // Getters
     public int getId() {
         return id;
     }
@@ -29,23 +34,36 @@ public class Pet {
         return age;
     }
 
-    // setters
+    // Setters (for EVERY field)
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+
     public void setAge(int age) {
         this.age = age;
     }
 
-    // methods with logic (как в Main)
+    // Additional methods with logic
     public boolean isAdult() {
-        return age >= 2;
+        return this.age >= 2;
     }
 
     public void celebrateBirthday() {
-        age++;
+        this.age++;
     }
 
     @Override
     public String toString() {
-        return "Pet{id=" + id +
+        return "Pet{" +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", species='" + species + '\'' +
                 ", age=" + age +

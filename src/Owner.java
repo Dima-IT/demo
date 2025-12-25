@@ -5,6 +5,11 @@ public class Owner {
     private String phone;
     private int numberOfPets;
 
+    // Default constructor
+    public Owner() {
+    }
+
+    // Constructor with all fields
     public Owner(int id, String name, String phone, int numberOfPets) {
         this.id = id;
         this.name = name;
@@ -12,7 +17,7 @@ public class Owner {
         this.numberOfPets = numberOfPets;
     }
 
-    // getters
+    // Getters
     public int getId() {
         return id;
     }
@@ -29,23 +34,36 @@ public class Owner {
         return numberOfPets;
     }
 
-    // setters
+    // Setters (for EVERY field)
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    // methods with logic (как в Main)
+    public void setNumberOfPets(int numberOfPets) {
+        this.numberOfPets = numberOfPets;
+    }
+
+    // Additional methods with logic
     public void addPet() {
-        numberOfPets++;
+        this.numberOfPets++;
     }
 
     public boolean hasManyPets() {
-        return numberOfPets >= 3;
+        return this.numberOfPets >= 3;
     }
 
     @Override
     public String toString() {
-        return "Owner{id=" + id +
+        return "Owner{" +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
                 ", numberOfPets=" + numberOfPets +
