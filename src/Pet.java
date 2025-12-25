@@ -1,28 +1,54 @@
 public class Pet {
 
+    private int id;
     private String name;
+    private String species;
     private int age;
-    private String type;
-    private boolean sick;
 
-    public Pet(String name, int age, String type, boolean sick) {
+    public Pet(int id, String name, String species, int age) {
+        this.id = id;
         this.name = name;
+        this.species = species;
         this.age = age;
-        this.type = type;
-        this.sick = sick;
+    }
+
+    // getters
+    public int getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public boolean isSick() {
-        return sick;
+    public String getSpecies() {
+        return species;
     }
 
-    public void heal() {
-        sick = false;
-        System.out.println(name + " is healthy now.");
+    public int getAge() {
+        return age;
+    }
+
+    // setters
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    // methods with logic (как в Main)
+    public boolean isAdult() {
+        return age >= 2;
+    }
+
+    public void celebrateBirthday() {
+        age++;
+    }
+
+    @Override
+    public String toString() {
+        return "Pet{id=" + id +
+                ", name='" + name + '\'' +
+                ", species='" + species + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
-
