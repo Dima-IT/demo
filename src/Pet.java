@@ -1,72 +1,53 @@
 public class Pet {
+    protected int id;
+    protected String name;
+    protected int age;
+    protected String ownerName;
 
-    private int id;
-    private String name;
-    private String species;
-    private int age;
-
-    // Default constructor (optional but added)
-    public Pet() {
-    }
-
-    // Constructor with all fields
-    public Pet(int id, String name, String species, int age) {
+    public Pet(int id, String name, int age, String ownerName) {
         this.id = id;
-        this.name = name;
-        this.species = species;
-        this.age = age;
+        setName(name);
+        setAge(age);
+        this.ownerName = ownerName;
     }
 
-    // Getters
-    public int getId() {
-        return id;
-    }
+    // Getters & Setters (Encapsulation)
+    public int getId() { return id; }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getSpecies() {
-        return species;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    // Setters (for EVERY field)
-    public void setId(int id) {
-        this.id = id;
-    }
+    public String getName() { return name; }
 
     public void setName(String name) {
-        this.name = name;
+        if (name != null && !name.isEmpty())
+            this.name = name;
+        else
+            this.name = "Unknown";
     }
 
-    public void setSpecies(String species) {
-        this.species = species;
-    }
+    public int getAge() { return age; }
 
     public void setAge(int age) {
-        this.age = age;
+        if (age >= 0)
+            this.age = age;
+        else
+            this.age = 0;
     }
 
-    // Additional methods with logic
-    public boolean isAdult() {
-        return this.age >= 2;
+    public String getOwnerName() { return ownerName; }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
     }
 
-    public void celebrateBirthday() {
-        this.age++;
+    public void makeSound() {
+        System.out.println(name + " makes a sound.");
+    }
+
+    public String getType() {
+        return "Pet";
     }
 
     @Override
     public String toString() {
-        return "Pet{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", species='" + species + '\'' +
-                ", age=" + age +
-                '}';
+        return "[" + getType() + "] " + name + " (Age: " + age + ", Owner: " + ownerName + ")";
     }
 }
