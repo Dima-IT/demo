@@ -34,4 +34,5 @@ public class Dog extends Pet implements Treatable {
     public String getCareInstructions() {
         return "Walk daily, fresh water, and regular vaccinations.";
     }
+
 }

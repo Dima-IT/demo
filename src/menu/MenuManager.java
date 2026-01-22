@@ -3,6 +3,7 @@ package menu;
 import exception.InvalidInputException;
 import model.*;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class MenuManager implements Menu {
     private final Scanner scanner = new Scanner(System.in);
 
     public MenuManager() {
-        // Test data (как у тебя)
+
         pets.add(new Dog(1, "Rex", 4, "Aidar", "Labrador"));
         pets.add(new Cat(2, "Murka", 2, "Asel", true));
     }
@@ -76,7 +77,7 @@ public class MenuManager implements Menu {
         }
     }
 
-    // ===== INPUT HELPERS (чтобы ловить NumberFormatException) =====
+    // ===== INPUT HELPERS ) =====
     private int readIntStrict() {
         String s = scanner.nextLine().trim();
         return Integer.parseInt(s);
@@ -96,6 +97,8 @@ public class MenuManager implements Menu {
         }
         return s.trim();
     }
+
+
 
     // ===== ADD METHODS
 
@@ -196,7 +199,7 @@ public class MenuManager implements Menu {
     private void polymorphismDemo() {
         System.out.println("\n=== POLYMORPHISM DEMO ===");
         for (Pet p : pets) {
-            p.makeSound(); // полиморфизм как у тебя
+            p.makeSound();
         }
     }
 
@@ -207,7 +210,7 @@ public class MenuManager implements Menu {
 
         for (Pet p : pets) {
             if (p instanceof Dog) {
-                Dog d = (Dog) p; // downcast как у тебя
+                Dog d = (Dog) p; //
                 count++;
 
                 System.out.println(count + ". " + d.getName());
@@ -229,7 +232,7 @@ public class MenuManager implements Menu {
 
         for (Pet p : pets) {
             if (p instanceof Cat) {
-                Cat c = (Cat) p; // downcast как у тебя
+                Cat c = (Cat) p;
                 count++;
 
                 System.out.println(count + ". " + c.getName());
@@ -243,5 +246,13 @@ public class MenuManager implements Menu {
             System.out.println("No cats found.");
         }
     }
+}
+  //
+
+
+
+
+
+
 }
 

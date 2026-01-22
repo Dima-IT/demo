@@ -24,6 +24,7 @@ public abstract class Pet {
     public String getOwnerName() { return ownerName; }
 
     // ===== Setters (MUST throw exceptions) =====
+
     public void setId(int id) {
         if (id <= 0) throw new IllegalArgumentException("ID must be > 0");
         this.id = id;
