@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 
-    private static final String URL = "jdbc:postgresql://localhost:5432/vet_clinic_db";
+    private static final String URL = "jdbc:postgresql://localhost:5432/vetdb";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "ТВОЙ_ПАРОЛЬ_ОТ_POSTGRES";
+    private static final String PASSWORD = "demo123";
 
     public static Connection getConnection() {
         Connection connection = null;
