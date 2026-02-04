@@ -77,10 +77,16 @@ public class MenuManager implements Menu {
         }
     }
 
-    // ===== INPUT HELPERS ) =====
+
     private int readIntStrict() {
-        String s = scanner.nextLine().trim();
-        return Integer.parseInt(s);
+        return Integer.parseInt(scanner.nextLine().trim());
+    }
+
+    private String readNonEmpty(String field) {
+        String s = scanner.nextLine();
+        if (s == null || s.trim().isEmpty())
+            throw new IllegalArgumentException(field + " cannot be empty");
+        return s.trim();
     }
 
     private boolean readBooleanStrict() {
@@ -90,38 +96,23 @@ public class MenuManager implements Menu {
         throw new IllegalArgumentException("Please type true or false.");
     }
 
-    private String readNonEmpty(String fieldName) {
-        String s = scanner.nextLine();
-        if (s == null || s.trim().isEmpty()) {
-            throw new IllegalArgumentException(fieldName + " cannot be empty");
-        }
-        return s.trim();
-    }
-
-
 
     // ===== ADD METHODS
 
     private void addPet() {
-        System.out.println("\n--- ADD PET ---");
-
-        System.out.print("ID: ");
+        System.out.println("\n add pet");
+        System.out.print("id: ");
         int id = readIntStrict();
-
-        System.out.print("Name: ");
+        System.out.print("name:");
         String name = readNonEmpty("Name");
-
-        System.out.print("Age: ");
+        System.out.print("age: ");
         int age = readIntStrict();
-
-        System.out.print("Owner: ");
+        System.out.print("owner: ");
         String owner = readNonEmpty("Owner");
-
-
         Pet pet = new Pet(id, name, age, owner) {
             @Override
             public void makeSound() {
-                System.out.println(name + " makes a sound.");
+                System.out.println(name + "sound");
             }
             @Override
             public String getType() {
@@ -130,7 +121,7 @@ public class MenuManager implements Menu {
         };
 
         pets.add(pet);
-        System.out.println("Pet added!");
+        System.out.println("u add a pet");
     }
 
     private void addDog() {
@@ -151,7 +142,7 @@ public class MenuManager implements Menu {
         System.out.print("Breed: ");
         String breed = readNonEmpty("Breed");
 
-        Pet dog = new Dog(id, name, age, owner, breed); // как у тебя (Pet reference)
+        Pet dog = new Dog(id, name, age, owner, breed);
         pets.add(dog);
 
         System.out.println("Dog added!");
@@ -195,6 +186,7 @@ public class MenuManager implements Menu {
             System.out.println(p);
         }
     }
+
 
     private void polymorphismDemo() {
         System.out.println("\n=== POLYMORPHISM DEMO ===");
@@ -254,5 +246,5 @@ public class MenuManager implements Menu {
 
 
 
-}
+
 
